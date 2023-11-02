@@ -9,7 +9,7 @@
     <h1>Teachers</h1>
     <div th:insert="~{parts/menu :: menu}"></div>
     <div>
-        <form action="/addTeacher" method="post">
+        <form action="/" method="post">
             <label for="firstname">First name:</label>
             <input type="text"
                    id="firstname"
@@ -52,15 +52,44 @@
                    name="dateOfIssue">
             <br>
 
-            <label for="IndividualTaxNumber">Individual tax number:</label>
+            <label for="taxNumber">Tax number:</label>
             <input type="text"
-                   id="IndividualTaxNumber"
-                   name="IndividualTaxNumber">
+                   id="taxNumber"
+                   name="taxNumber">
             <br>
 
             <button type="submit">Send</button>
         </form>
 
+    </div>
+    <div>
+        <table>
+            <caption>Teachers</caption>
+            <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Middle name</th>
+                <th>Birthday</th>
+                <th>Passport</th>
+                <th>Authority</th>
+                <th>Date of issue</th>
+                <th>Tax number</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="teacher : ${teachers}">
+                <th th:text="${teacher.firstname}">First name</th>
+                <th th:text="${teacher.lastname}">Last name</th>
+                <th th:text="${teacher.middlename}">Middle name</th>
+                <th th:text="${teacher.birthday}">Birthday</th>
+                <th th:text="${teacher.passport}">Passport</th>
+                <th th:text="${teacher.authority}">Authority</th>
+                <th th:text="${teacher.dateOfIssue}">Date of issue</th>
+                <th th:text="${teacher.taxNumber}">Tax number</th>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 </body>
