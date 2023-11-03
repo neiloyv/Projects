@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -33,6 +34,28 @@ public class TeacherService {
         Teacher teacher = teacherMapper.map(teacherDto);
         Teacher savedTeacher = teacherRepository.save(teacher);
         return savedTeacher;
+    }
+
+    public Optional<Teacher> findById(Long id) {
+        return teacherRepository.findById(id);
+    }
+
+    @Transactional
+    public Optional<TeacherDto> update(Long id, TeacherDto teacherDto) {
+        return findById(id)
+                .map(teacher -> {
+                    teacher.setFirstname(teacherDto.getFirstname());
+                    teacher.setLastname(teacherDto.getLastname());
+                    teacher.setMiddlename(teacherDto.getMiddlename());
+                    teacher.setBirthday(teacherDto.getBirthday());
+                    teacher.setPassport(teacherDto.getPassport());
+                    teacher.setAuthority(teacherDto.getAuthority());
+                    teacher.setDateOfIssue(teacherDto.getDateOfIssue());
+                    teacher.setTaxNumber(teacherDto.getTaxNumber());
+                    return teacher;
+                })
+                .map(teacherRepository::saveAndFlush)
+                .map(teacherDtoMapper::map);
     }
 
 
