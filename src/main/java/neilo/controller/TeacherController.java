@@ -2,17 +2,17 @@ package neilo.controller;
 
 import lombok.RequiredArgsConstructor;
 import neilo.dto.TeacherDto;
-import neilo.entity.Teacher;
 import neilo.mapper.TeacherDtoMapper;
 import neilo.service.TeacherService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Controller
@@ -30,7 +30,7 @@ public class TeacherController {
 
     @PostMapping("/add")
     public String addTeacher(Model model,
-                             @ModelAttribute TeacherDto teacherDto) {
+                             @ModelAttribute @Validated TeacherDto teacherDto) {
         teacherService.save(teacherDto);
         return "redirect:/teachers";
     }
@@ -51,7 +51,7 @@ public class TeacherController {
     @PostMapping("/{id}/update")
     public String updateTeacher(Model model,
                                 @PathVariable("id") Long id,
-                                @ModelAttribute TeacherDto teacherDto) {
+                                @ModelAttribute @Validated TeacherDto teacherDto) {
         teacherService.update(id, teacherDto);
 
         return "redirect:/teachers";
