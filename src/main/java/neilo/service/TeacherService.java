@@ -59,4 +59,9 @@ public class TeacherService {
     }
 
 
+    @Transactional
+    public void delete(Long id) {
+        Optional<Teacher> maybeTeacher = teacherRepository.findById(id);
+        maybeTeacher.ifPresent(teacherRepository::delete);
+    }
 }

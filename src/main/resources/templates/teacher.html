@@ -69,6 +69,11 @@
             <button type="submit">Update</button>
         </form>
 
+        <a th:href="@{'/teachers/' + ${teacher.id} + '/delete'}" th:method="post">Delete teacher</a>
+        <form th:action="@{'/teachers/' + ${teacher.id} + '/delete'}" method="post">
+            <button type="submit">Delete teacher</button>
+        </form>
+
     </div>
 </div>
 </body>
