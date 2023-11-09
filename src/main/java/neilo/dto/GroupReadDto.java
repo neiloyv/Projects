@@ -13,4 +13,6 @@ public class GroupReadDto {
     String name;
 
     TeacherDto teacherDto;
+
+    String fullname;
 }

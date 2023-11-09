@@ -24,24 +24,17 @@ CREATE TABLE IF NOT EXISTS groups
 );
 
 --changeset neiloyv:3
-CREATE TABLE IF NOT EXISTS parent
-(
-    id         BIGSERIAL PRIMARY KEY,
-    firstname  VARCHAR(64) NOT NULL,
-    lastname   VARCHAR(64) NOT NULL,
-    middlename VARCHAR(64),
-    phone      VARCHAR(13) not null
-);
-
---changeset neiloyv:4
 CREATE TABLE IF NOT EXISTS client
 (
-    id         BIGSERIAL PRIMARY KEY,
-    firstname  VARCHAR(64)                   NOT NULL,
-    lastname   VARCHAR(64)                   NOT NULL,
-    middlename VARCHAR(64)                   NOT NULL,
-    birthday   TIMESTAMP                     NOT NULL,
-    parent_id  BIGINT REFERENCES parent (id) NOT NULL,
-    groups_id  INT REFERENCES groups (id) NOT NULL
+    id               BIGSERIAL PRIMARY KEY,
+    firstname        VARCHAR(64)                NOT NULL,
+    lastname         VARCHAR(64)                NOT NULL,
+    middlename       VARCHAR(64)                NOT NULL,
+    birthday         TIMESTAMP                  NOT NULL,
+    parent_firstname  VARCHAR(64)                NOT NULL,
+    parent_lastname   VARCHAR(64)                NOT NULL,
+    parent_middlename VARCHAR(64),
+    parent_phone      VARCHAR(13)                not null,
+    groups_id        INT REFERENCES groups (id) NOT NULL
 
 );

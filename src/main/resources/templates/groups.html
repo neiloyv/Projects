@@ -16,15 +16,13 @@
             <caption>Groups</caption>
             <thead>
             <tr>
-                <th>Teacher</th>
                 <th>Group`s name</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="group : ${groups}">
-                <th th:text="|${group.teacherDto.lastname} ${group.teacherDto.firstname}|">Teacher`s name</th>
                 <th><a th:href="@{'/group/' + ${group.id}}"
-                       th:text="${group.name}">Group`s name</a></th>
+                       th:text="${group.fullname}">Group`s name</a></th>
             </tr>
             </tbody>
         </table>

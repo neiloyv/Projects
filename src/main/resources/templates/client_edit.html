@@ -2,66 +2,75 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>>Add client data</title>
+    <title>>Edit client data</title>
 </head>
 <body>
 <div>
-    <h1>Add client data</h1>
+    <h1>Edit client data</h1>
     <div th:insert="~{parts/menu :: menu}"></div>
     <div>
-        <form action="/client/add" method="post">
+        <form th:action="@{'/client/' + ${client.id} + '/edit'}" method="post">
             <label for="firstname">First name:</label>
             <input type="text"
                    id="firstname"
-                   name="firstname">
+                   name="firstname"
+                   th:value="${client.firstname}">
             <br>
 
             <label for="lastname">Last name:</label>
             <input type="text"
                    id="lastname"
-                   name="lastname">
+                   name="lastname"
+                   th:value="${client.lastname}">
             <br>
 
             <label for="middlename">Middle name:</label>
             <input type="text"
                    id="middlename"
-                   name="middlename">
+                   name="middlename"
+                   th:value="${client.middlename}">
             <br>
 
             <label for="birthday">Birthday:</label>
             <input type="date"
                    id="birthday"
-                   name="birthday">
+                   name="birthday"
+                   th:value="${client.birthday}">
             <br>
 
             <label for="parentFirstname">Parent first name:</label>
             <input type="text"
                    id="parentFirstname"
-                   name="parentFirstname">
+                   name="parentFirstname"
+                   th:value="${client.parentFirstname}">
             <br>
 
             <label for="parentLastname">Parent last name:</label>
             <input type="text"
                    id="parentLastname"
-                   name="parentLastname">
+                   name="parentLastname"
+                   th:value="${client.parentLastname}">
             <br>
 
             <label for="parentMiddlename">Parent middle name:</label>
             <input type="text"
                    id="parentMiddlename"
-                   name="parentMiddlename">
+                   name="parentMiddlename"
+                   th:value="${client.parentMiddlename}">
             <br>
 
             <label for="parentPhone">Parent phone:</label>
             <input type="text"
                    id="parentPhone"
-                   name="parentPhone">
+                   name="parentPhone"
+                   th:value="${client.parentPhone}">
             <br>
 
             <select name="groupId">
                 <option th:each="group : ${groups}"
                         th:value="${group.id}"
-                        th:text="|${group.teacherDto.lastname} ${group.teacherDto.firstname} - ${group.name}|">Group`s name
+                        th:text="|${group.teacherDto.lastname} ${group.teacherDto.firstname} - ${group.name}|"
+                        th:selected="${client.groupReadDto.id == group.id}">Group`s name
                 </option>
             </select>
 

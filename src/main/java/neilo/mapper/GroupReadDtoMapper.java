@@ -13,10 +13,17 @@ public class GroupReadDtoMapper implements Mapper<Group, GroupReadDto> {
 
     @Override
     public GroupReadDto map(Group group) {
+        String fullname = group.getTeacher().getLastname()
+                + " "
+                + group.getTeacher().getFirstname()
+                + " - "
+                + group.getName();
+
         return GroupReadDto.builder()
                 .id(group.getId())
                 .name(group.getName())
                 .teacherDto(teacherDtoMapper.map(group.getTeacher()))
+                .fullname(fullname)
                 .build();
     }
 }

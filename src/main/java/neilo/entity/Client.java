@@ -28,9 +28,13 @@ public class Client {
 
     private LocalDate birthday;
 
-    @ManyToOne
-    @JoinColumn(name = "parent_id")
-    private Parent parent;
+    private String parentFirstname;
+
+    private String parentLastname;
+
+    private String parentMiddlename;
+
+    private String parentPhone;
 
     @ManyToOne
     @JoinColumn(name = "groups_id")

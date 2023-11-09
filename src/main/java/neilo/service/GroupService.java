@@ -1,6 +1,7 @@
 package neilo.service;
 
 import lombok.RequiredArgsConstructor;
+import neilo.dto.ClientDto;
 import neilo.dto.GroupDto;
 import neilo.dto.GroupReadDto;
 import neilo.entity.Group;
@@ -56,5 +57,9 @@ public class GroupService {
             group.setName(editedGroup.getName());
             group.setTeacher(editedGroup.getTeacher());
         });
+    }
+
+    public void saveClient(ClientDto clientDto) {
+
     }
 }

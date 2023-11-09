@@ -4,6 +4,7 @@ package neilo.dto;
 import lombok.Builder;
 import lombok.Value;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
@@ -38,4 +39,7 @@ public class ClientDto {
     @Size(min = 13, max = 13, message = "The phone must have a size equals 13 characters. " +
             "Phone number must have next format pattern: +380#########")
     String parentPhone;
+
+    @NotNull
+    Integer groupId;
 }

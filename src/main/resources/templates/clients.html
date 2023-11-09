@@ -9,7 +9,7 @@
     <h1>Clients</h1>
     <div th:insert="~{parts/menu :: menu}"></div>
     <div>
-        <a href="/clients/add">Add new client</a>
+        <a href="/client/add">Add new client</a>
     </div>
     <div>
         <table>
@@ -17,17 +17,19 @@
             <thead>
             <tr>
                 <th>Client`s name</th>
-                <th>Birthday</th>
+                <th>Group`s name</th>
                 <th>Contact phone</th>
+                <th>Birthday</th>
             </tr>
             </thead>
             <tbody>
-<!--            <tr th:each="teacher : ${teachers}">-->
-<!--                <th><a th:href="@{'/teachers/' + ${teacher.id}}"-->
-<!--                       th:text="|${teacher.lastname} ${teacher.firstname} ${teacher.middlename}|">Teacher`s name</a></th>-->
-<!--                <th th:text="${teacher.birthday}">Birthday</th>-->
-<!--                <th th:text="${teacher.birthday}">Birthday</th>-->
-<!--            </tr>-->
+            <tr th:each="client : ${clients}">
+                <th><a th:href="@{'/client/' + ${client.id}}"
+                       th:text="|${client.lastname} ${client.firstname}|">client`s name</a></th>
+                <th th:text="${client.groupReadDto.fullname}">Group`s name</th>
+                <th th:text="${client.parentPhone}">Phone</th>
+                <th th:text="${client.birthday}">Birthday</th>
+            </tr>
             </tbody>
         </table>
     </div>

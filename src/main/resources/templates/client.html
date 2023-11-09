@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>>Add client data</title>
+</head>
+<body>
+<div>
+    <h1>Add client data</h1>
+    <div th:insert="~{parts/menu :: menu}"></div>
+    <div>
+        <p>Client`s name: <span th:text="|${client.lastname} ${client.firstname} ${client.middlename}|">Client`s name</span></p>
+        <p>Group`s name: <span th:text="${client.groupReadDto.fullname}">Group`s name</span></p>
+        <p>Birthday: <span th:text="${client.birthday}">Birthday</span></p>
+        <p>Parent`s name: <span th:text="|${client.parentLastname} ${client.parentFirstname} ${client.parentMiddlename}|">Parent`s name</span></p>
+        <p>Phone: <span th:text="${client.parentPhone}">Phone</span></p>
+    </div>
+    <div>
+        <form th:action="@{'/client/' + ${client.id} + '/edit'}" method="get">
+            <button type="submit">Edit</button>
+        </form>
+        <form th:action="@{'/client/' + ${client.id} + '/delete'}" method="post">
+            <button type="submit">Delete</button>
+        </form>
+        <form action="/clients" method="get">
+            <button type="submit">Go to clients</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
