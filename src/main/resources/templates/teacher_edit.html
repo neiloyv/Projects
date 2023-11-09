@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher</title>
+</head>
+<body>
+<div>
+    <h1>Teacher</h1>
+    <div th:insert="~{parts/menu :: menu}"></div>
+    <div>
+        <form th:action="@{'/teacher/' + ${teacher.id} + '/update'}" method="post">
+            <label for="firstname">First name:</label>
+            <input type="text"
+                   id="firstname"
+                   name="firstname"
+                   th:value="${teacher.firstname}">
+            <br>
+
+            <label for="lastname">Last name:</label>
+            <input type="text"
+                   id="lastname"
+                   name="lastname"
+                   th:value="${teacher.lastname}">
+            <br>
+
+            <label for="middlename">Midle name:</label>
+            <input type="text"
+                   id="middlename"
+                   name="middlename"
+                   th:value="${teacher.middlename}">
+            <br>
+
+            <label for="birthday">Birthday:</label>
+            <input type="date"
+                   id="birthday"
+                   name="birthday"
+                   th:value="${teacher.birthday}">
+            <br>
+
+            <label for="passport">Series and number of the passport:</label>
+            <input type="text"
+                   id="passport"
+                   name="passport"
+                   th:value="${teacher.passport}">
+            <br>
+
+            <label for="authority">Authority:</label>
+            <input type="text"
+                   id="authority"
+                   name="authority"
+                   th:value="${teacher.authority}">
+            <br>
+
+            <label for="dateOfIssue">Date of issue:</label>
+            <input type="date"
+                   id="dateOfIssue"
+                   name="dateOfIssue"
+                   th:value="${teacher.dateOfIssue}">
+            <br>
+
+            <label for="taxNumber">Tax number:</label>
+            <input type="text"
+                   id="taxNumber"
+                   name="taxNumber"
+                   th:value="${teacher.taxNumber}">
+            <br>
+
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

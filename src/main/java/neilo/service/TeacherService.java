@@ -41,8 +41,8 @@ public class TeacherService {
     }
 
     @Transactional
-    public Optional<TeacherDto> update(Long id, TeacherDto teacherDto) {
-        return findById(id)
+    public Optional<TeacherDto> update(TeacherDto teacherDto) {
+        return findById(teacherDto.getId())
                 .map(teacher -> {
                     teacher.setFirstname(teacherDto.getFirstname());
                     teacher.setLastname(teacherDto.getLastname());

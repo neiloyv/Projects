@@ -9,71 +9,25 @@
     <h1>Teacher</h1>
     <div th:insert="~{parts/menu :: menu}"></div>
     <div>
-        <form th:action="@{'/teachers/' + ${teacher.id} + '/update'}" method="post">
-            <label for="firstname">First name:</label>
-            <input type="text"
-                   id="firstname"
-                   name="firstname"
-                   th:value="${teacher.firstname}">
-            <br>
-
-            <label for="lastname">Last name:</label>
-            <input type="text"
-                   id="lastname"
-                   name="lastname"
-                   th:value="${teacher.lastname}">
-            <br>
-
-            <label for="middlename">Midle name:</label>
-            <input type="text"
-                   id="middlename"
-                   name="middlename"
-                   th:value="${teacher.middlename}">
-            <br>
-
-            <label for="birthday">Birthday:</label>
-            <input type="date"
-                   id="birthday"
-                   name="birthday"
-                   th:value="${teacher.birthday}">
-            <br>
-
-            <label for="passport">Series and number of the passport:</label>
-            <input type="text"
-                   id="passport"
-                   name="passport"
-                   th:value="${teacher.passport}">
-            <br>
-
-            <label for="authority">Authority:</label>
-            <input type="text"
-                   id="authority"
-                   name="authority"
-                   th:value="${teacher.authority}">
-            <br>
-
-            <label for="dateOfIssue">Date of issue:</label>
-            <input type="date"
-                   id="dateOfIssue"
-                   name="dateOfIssue"
-                   th:value="${teacher.dateOfIssue}">
-            <br>
-
-            <label for="taxNumber">Tax number:</label>
-            <input type="text"
-                   id="taxNumber"
-                   name="taxNumber"
-                   th:value="${teacher.taxNumber}">
-            <br>
-
-            <button type="submit">Update</button>
+        <p>First name: <span th:text="${teacher.firstname}">Firstname</span></p>
+        <p>Last name: <span th:text="${teacher.lastname}">Firstname</span></p>
+        <p>Middle name: <span th:text="${teacher.middlename}">Firstname</span></p>
+        <p>Birthday: <span th:text="${teacher.birthday}">Firstname</span></p>
+        <p>Passport: <span th:text="${teacher.passport}">Firstname</span></p>
+        <p>Authority: <span th:text="${teacher.authority}">Firstname</span></p>
+        <p>Date of issue: <span th:text="${teacher.dateOfIssue}">Firstname</span></p>
+        <p>Tax number: <span th:text="${teacher.taxNumber}">Firstname</span></p>
+    </div>
+    <div>
+        <form th:action="@{'/teacher/' + ${teacher.id} + '/edit'}" method="get">
+            <button type="submit">Edit</button>
         </form>
-
-        <form th:action="@{'/teachers/' + ${teacher.id} + '/delete'}" method="post">
-            <button type="submit">Delete teacher</button>
+        <form th:action="@{'/teacher/' + ${teacher.id} + '/delete'}" method="post">
+            <button type="submit">Delete</button>
         </form>
-
-        <a href="/teachers">Teachers</a>
+        <form action="/teachers" method="get">
+            <button type="submit">Go to Teachers</button>
+        </form>
     </div>
 </div>
 </body>

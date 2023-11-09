@@ -9,58 +9,7 @@
     <h1>Teachers</h1>
     <div th:insert="~{parts/menu :: menu}"></div>
     <div>
-        <form action="/teachers/add" method="post">
-            <label for="firstname">First name:</label>
-            <input type="text"
-                   id="firstname"
-                   name="firstname">
-            <br>
-
-            <label for="lastname">Last name:</label>
-            <input type="text"
-                   id="lastname"
-                   name="lastname">
-            <br>
-
-            <label for="middlename">Middle name:</label>
-            <input type="text"
-                   id="middlename"
-                   name="middlename">
-            <br>
-
-            <label for="birthday">Birthday:</label>
-            <input type="date"
-                   id="birthday"
-                   name="birthday">
-            <br>
-
-            <label for="passport">Series and number of the passport:</label>
-            <input type="text"
-                   id="passport"
-                   name="passport">
-            <br>
-
-            <label for="authority">Authority:</label>
-            <input type="text"
-                   id="authority"
-                   name="authority">
-            <br>
-
-            <label for="dateOfIssue">Date of issue:</label>
-            <input type="date"
-                   id="dateOfIssue"
-                   name="dateOfIssue">
-            <br>
-
-            <label for="taxNumber">Tax number:</label>
-            <input type="text"
-                   id="taxNumber"
-                   name="taxNumber">
-            <br>
-
-            <button type="submit">Send</button>
-        </form>
-
+        <a href="/teacher/add">Add new teacher</a>
     </div>
     <div>
         <table>
@@ -73,7 +22,7 @@
             </thead>
             <tbody>
             <tr th:each="teacher : ${teachers}">
-                <th><a th:href="@{'/teachers/' + ${teacher.id}}"
+                <th><a th:href="@{'/teacher/' + ${teacher.id}}"
                        th:text="|${teacher.lastname} ${teacher.firstname} ${teacher.middlename}|">Teacher`s name</a></th>
                 <th th:text="${teacher.birthday}">Birthday</th>
             </tr>
