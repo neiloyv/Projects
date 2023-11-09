@@ -15,7 +15,10 @@ public class ControllerValidation {
     public String handleExceptions(Model model,
                                    Exception exception,
                                    BindingResult bindingResult) {
-        List<String> errors = bindingResult.getAllErrors().stream().map(objectError -> objectError.getDefaultMessage()).collect(Collectors.toList());
+        List<String> errors = bindingResult.getAllErrors()
+                .stream()
+                .map(objectError -> objectError.getDefaultMessage())
+                .collect(Collectors.toList());
         model.addAttribute("errors", errors);
 
         return "validationError";

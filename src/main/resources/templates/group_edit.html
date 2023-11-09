@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit group data</title>
+</head>
+<body>
+<div>
+    <h1>Edit group data</h1>
+    <div th:insert="~{parts/menu :: menu}"></div>
+    <div>
+        <form th:action="@{'/group/' + ${group.id} + '/edit'}" method="post">
+            <label for="name">Name:</label>
+            <input type="text"
+                   id="name"
+                   name="name"
+                   th:value="${group.name}">
+            <br>
+
+            <label for="teacher">Teacher:</label>
+            <select name="teacherId">
+                <option id="teacher"
+                        th:each="teacher : ${teachers}"
+                        th:value="${teacher.id}"
+                        th:text="|${teacher.lastname} ${teacher.firstname}|"
+                        th:selected="${teacher.id == group.teacherDto.id}">Teacher name
+                </option>
+            </select>
+            <br>
+
+            <button type="submit">Send</button>
+        </form>
+
+    </div>
+</div>
+</body>
+</html>

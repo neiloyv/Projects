@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Group detail information</title>
+</head>
+<body>
+<div>
+    <h1>Group detail information</h1>
+    <div th:insert="~{parts/menu :: menu}"></div>
+    <div>
+        <div>
+            <p>Teacher <span th:text="|${group.teacherDto.lastname} ${group.teacherDto.firstname}|">Name</span></p>
+            <P>Group name <span th:text="${group.name}">group name</span></P>
+        </div>
+        <form th:action="@{'/group/' + ${group.id} + '/edit'}" method="get">
+            <button type="submit">Edit</button>
+        </form>
+        <form th:action="@{'/group/' + ${group.id} + '/delete'}" method="post">
+            <button type="submit">Delete</button>
+        </form>
+        <form action="/groups" method="get">
+            <button type="submit">Go to groups</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

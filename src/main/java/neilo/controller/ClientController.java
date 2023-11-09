@@ -10,4 +10,15 @@ public class ClientController {
     public String getClients() {
         return "clients";
     }
+
+
+    @GetMapping("/clients/add")
+    public String getClientAdd() {
+
+        return "client_add";
+    }
+
+
+
+
 }

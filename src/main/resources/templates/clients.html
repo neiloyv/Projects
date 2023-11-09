@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Clients</title>
+</head>
+<body>
+<div>
+    <h1>Clients</h1>
+    <div th:insert="~{parts/menu :: menu}"></div>
+    <div>
+        <a href="/clients/add">Add new client</a>
+    </div>
+    <div>
+        <table>
+            <caption>Clients</caption>
+            <thead>
+            <tr>
+                <th>Client`s name</th>
+                <th>Birthday</th>
+                <th>Contact phone</th>
+            </tr>
+            </thead>
+            <tbody>
+<!--            <tr th:each="teacher : ${teachers}">-->
+<!--                <th><a th:href="@{'/teachers/' + ${teacher.id}}"-->
+<!--                       th:text="|${teacher.lastname} ${teacher.firstname} ${teacher.middlename}|">Teacher`s name</a></th>-->
+<!--                <th th:text="${teacher.birthday}">Birthday</th>-->
+<!--                <th th:text="${teacher.birthday}">Birthday</th>-->
+<!--            </tr>-->
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

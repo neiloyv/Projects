@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Groups</title>
+</head>
+<body>
+<div>
+    <h1>Groups</h1>
+    <div th:insert="~{parts/menu :: menu}"></div>
+    <div>
+        <a href="/groups/add">Add new group</a>
+    </div>
+    <div>
+        <table>
+            <caption>Groups</caption>
+            <thead>
+            <tr>
+                <th>Teacher</th>
+                <th>Group`s name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="group : ${groups}">
+                <th th:text="|${group.teacherDto.lastname} ${group.teacherDto.firstname}|">Teacher`s name</th>
+                <th><a th:href="@{'/group/' + ${group.id}}"
+                       th:text="${group.name}">Group`s name</a></th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
